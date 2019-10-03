@@ -1,6 +1,7 @@
 package com.bet.bet1.controller;
 
 
+import com.bet.bet1.component.AsyncDemo;
 import com.bet.bet1.domain.Person;
 import com.bet.bet1.services.PersonService;
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ public class PersonController {
     private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
     @Autowired
     PersonService personService;
+    @Autowired
+    private AsyncDemo asyncDemo;
 
     @GetMapping("/persons")
     private List<Person> getAllPersons() {
@@ -23,6 +26,7 @@ public class PersonController {
         LOG.debug("This is a DEBUG log");
         LOG.info("This is an INFO log");
         LOG.error("This is an ERROR log");
+        asyncDemo.demo();
         return personService.getAllPersons();
     }
 
