@@ -21,7 +21,7 @@ Pessimistic Concurrency ->
 transactions, otherwise it is a badly scalable option for handling concurrency.
 locks every row on update; after update releases the lock-> SLOW
  */
-@Data
+
 @Entity
 public class Person {
     private static final Logger LOG = LoggerFactory.getLogger(Person.class);
@@ -38,6 +38,54 @@ public class Person {
     @Transient
     private String emailId;
 
+    public Person() {
+    }
 
+    public Person(int id, int version, String name, int age) {
+        this.id = id;
+        this.version = version;
+        this.name = name;
+        this.age = age;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 }

@@ -1,0 +1,16 @@
+type Person {
+   id: ID!
+   version: Int!
+   name: String!
+   age: Int!
+}
+
+type Query {
+    getAllPersons: [Person]!
+    getPersonById(id: ID): Person!
+}
+
+type Mutation {
+   delete(id: ID!): Boolean !
+   newPerson(id: ID!, version: Int!, name: String!, age: Int!): Person!
+}
