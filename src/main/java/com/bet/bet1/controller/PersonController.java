@@ -17,6 +17,7 @@ import java.util.List;
 
 // @RestController = @RestController + @ResponseBody
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonController {
     private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
     @Autowired
@@ -56,7 +57,7 @@ public class PersonController {
         personService.delete(id);
     }
 
-    @PostMapping("/persons")
+    @PostMapping("/save")
     private int savePerson(@RequestBody Person person) {
         personService.saveOrUpdate(person);
         return person.getId();
